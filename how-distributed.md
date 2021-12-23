@@ -31,7 +31,10 @@ Gateway BusinessWorker Register之间如何工作的，请看[原理](principle.
 
 ②、start_gateway.php中如果```$gateway->startPort=2300; $gateway->count=4;```，则2300 2301 2302 2303四个端口需要被设置成能被其它服务器访问，也就是起始端口```$gateway->startPort```到```$gateway->startPort + $gateway->count - 1```这 ```$gateway->count```个端口要设置成能被其它内网服务器访问。
 
-2、如果多机部署服务器不在一个局域网，部署时ip参数可以使用外网ip(注意云服务器一般没有外网网卡，所以阿里云、腾讯云等云服务器一般无法外网部署集群)，对应端口防火墙应该设置成能被外网服务器访问。
+2、如果多机部署服务器不在一个局域网，部署时ip参数可以使用外网ip(需要GatewayWorker版本>=v3.0.22)，对应端口防火墙应该设置成能被外网服务器访问。
+
+> GatewayWorker在v3.0.22之前的版本不支持云服务器跨公网通讯。如需公网部署集群，请升级GatewayWorker到v3.0.22或更高版本。
+> 跨公网通讯有风险，建议都放在一个内网。
 
 3、三台GatewayWorker机器都运行了Gateway进程和Worker进程，客户端连接上任意一台GatewayWorker的Gateway端口即通讯，开发。
 
