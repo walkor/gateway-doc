@@ -34,7 +34,7 @@ GatewayWorker不支持UDP监听，所以UDP服务请选择Workerman。
 **注意：**如果telnet超时请检查服务器防火墙(iptables)
 
 ## Windows系统快速开始（从一个精简的聊天demo开始）
-1、[下载demo](https://www.workerman.net/download/GatewayWorker-for-win.zip)
+1、[下载demo](https://www.workerman.net/download/GatewayWorker.zip)
 
 2、解压到任意位置
 
