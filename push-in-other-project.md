@@ -29,8 +29,9 @@ GatewayWorker3.0.8及以上版本请使用 [3.0.13及以上版本的GatewayClien
 - 下载后GatewayClient目录可以放在项目中的任意位置，只要项目能引用到GatewayClient/Gateway.php即可。
 
 - 如果GatewayClient和GatewayWorker不是在同一台服务器上，则需要先将start_gateway.php中的lanIp改成当前服务器的内网ip（如果不在一个内网可改成公网ip，需要GatewayWorker版本>=v3.0.22）。注意，无论何时lanIp都不能写成```0.0.0.0```，否则将无法通讯。
+
 > **注意**
-> GatewayWorker在v3.0.22之前的版本不支持云服务器跨公网通讯。如果GatewayClient和GatewayWorker不是在同一个内网，需要升级GatewayWorker到v3.0.22或更高版本。
+> GatewayClient跨公网通讯需要GatewayWorker版本>=v3.0.22
 > 跨公网通讯有风险，建议都放在一个内网。
 
 - 如果GatewayClient和GatewayWorker不是在同一台服务器上，还要设置防火墙(云服务器的话还要设置安全组)让以下端口可以被GatewayClient所在服务器访问：1、start_gateway.php中的$gateway->startPort起始的几个端口(要开放的端口个数和$gateway->count有关)。2、start_register.php中的Register服务端口
