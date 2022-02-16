@@ -1,5 +1,8 @@
 ## Gateway/Worker模型 数据库使用示例
 
+> **提示**
+> 推荐使用[webman的GatewayWorker插件](https://www.workerman.net/doc/gateway-worker/webman.html)，对业务目录、数据库、redis等支持更完善。
+
 ## 安装
 具体安装使用参见 [Workerman手册 Workerman/MySQL](https://doc.workerman.net/components/workerman-mysql.html)
 
