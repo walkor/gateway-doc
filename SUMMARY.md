@@ -4,6 +4,7 @@
 * [开发必读](getting-started.md)
 * [启动与停止](start-and-stop.md)
 * [与ThinkPHP等框架结合](work-with-other-frameworks.md)
+* [与webman结合](webman.md)
 * [Register类的使用](register.md)
 * [Gateway类的使用](gateway.md)
 * [BusinessWorker类的使用](business-worker.md)
