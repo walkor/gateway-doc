@@ -25,7 +25,7 @@ namespace GatewayWorker;
 use Workerman\Connection\TcpConnection;
 
 use \Workerman\Worker;
-use \Workerman\Lib\Timer;
+use \Workerman\Timer;
 use \Workerman\Autoloader;
 use \Workerman\Connection\AsyncTcpConnection;
 use \GatewayWorker\Protocols\GatewayProtocol;

@@ -55,7 +55,7 @@ class Event
 
 Event.php
 ```php
-use Workerman\Lib\Timer;
+use Workerman\Timer;
 class Event
 {
     public static function onConnect($client_id)

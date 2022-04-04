@@ -4,7 +4,7 @@ GatewayWorker是基于Workerman开发的，Workerman定时器在GatewayWorker中
 ## 示例
 
 ```php
-use Workerman\Lib\Timer;
+use Workerman\Timer;
 class Events
 {
     // 进程启动时设置个定时器。Events中支持onWorkerStart需要Gateway版本>=2.0.4
