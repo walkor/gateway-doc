@@ -172,6 +172,7 @@ class Events
 
 例如内部调用`http://127.0.0.1:8585/?method=sendToAll&args[]=hello`时，会给所有客户端发送`hello`字符串 
 
+**注意**
 以上代码没有做合法性验证，如果调用方和BusinessWorker进程在同一台服务器，
 `$http_worker = new Worker('http://0.0.0.0:8585');` 可改为
 `$http_worker = new Worker('http://127.0.0.1:8585');`，
