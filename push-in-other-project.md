@@ -138,5 +138,48 @@ if(!$client)exit("can not connect");
 fwrite($client, '{"type":"send","content":"hello all", "user":"admin", "pass":"******"}'."\n");
 ~~~
 
+## 方法四、在BusinessWorker里开一个内部通讯端口
+```
+use GatewayWorker\Lib\Gateway;
+use Workerman\Connection\TcpConnection;
+use Workerman\Protocols\Http\Request;
+use Workerman\Worker;
+
+class Events
+{
+
+    public static function onWorkerStart()
+    {
+        $http_worker = new Worker('http://0.0.0.0:8585');
+        $http_worker->reusePort = true;
+        $http_worker->onMessage = function (TcpConnection $connection, Request $request) {
+            $method = $request->get('method');
+            $args = $request->get('args');
+            if (method_exists(Gateway::class, $method)) {
+                call_user_func_array([Gateway::class, $method], $args);
+                return $connection->send('ok');
+            }
+            return $connection->send('fail');
+        };
+        $http_worker->listen();
+    }
+
+    // ... 其它业务逻辑省略 ...
+}
+```
+
+这样就可以通过http调用BusinessWorker进程，在进程内部可以实现调用任意接口操作客户端包括给客户端推送数据。
+
+例如内部调用`http://127.0.0.1:8585/?method=sendToAll&args[]=hello`时，会给所有客户端发送`hello`字符串 
+
+以上代码没有做合法性验证，如果调用方和BusinessWorker进程在同一台服务器，
+`$http_worker = new Worker('http://0.0.0.0:8585');` 可改为
+`$http_worker = new Worker('http://127.0.0.1:8585');`，
+这样只有本机才能调用8585端口，可省略合法性验证。
+
+如果是其它服务器调用8585端口，需要做请求合法性验证。
+如果其它服务器无法调用8585端口，请确认服务器防火墙、安全组、包括宝塔(如果有使用的话)开放了8585端口。
+
+
 
 
