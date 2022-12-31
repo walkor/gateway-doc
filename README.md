@@ -31,7 +31,9 @@ GatewayWorker不支持UDP监听，所以UDP服务请选择Workerman。
 
 5、**新开几个**命令行窗口运行 ```telnet 127.0.0.1 8282```，输入任意字符即可聊天（非本机测试请将127.0.0.1替换成实际ip）。
 
-**注意：**如果telnet超时请检查服务器防火墙(iptables)
+> **注意**
+> 如果telnet超时请设置服务器安全组将8282端口开放。
+> 如果需要测试websocket协议，需要将start_gateway.php中`tcp`改成`websocket`
 
 ## Windows系统快速开始（从一个精简的聊天demo开始）
 1、[下载demo](https://www.workerman.net/download/GatewayWorker.zip)
@@ -44,10 +46,11 @@ GatewayWorker不支持UDP监听，所以UDP服务请选择Workerman。
 
 5、**新开几个**cmd命令行窗口运行 ```telnet 127.0.0.1 8282```，输入任意字符即可聊天（非本机测试请将127.0.0.1替换成实际ip，）。
 
-**注意：**
-windows系统telnet可能需要安装，安装方法可以baidu下
-windows系统telnet是逐字符发送的，无法发送整句话请不要奇怪
-如果telnet超时请检查服务器防火墙
+> **注意**
+> windows系统telnet可能需要安装，安装方法可以baidu下
+> windows系统telnet是逐字符发送的，可能无法发送完整的单词语句
+> 如果telnet超时请设置服务器安全组将8282端口开放
+> 如果需要测试websocket协议，需要将start_gateway.php中`tcp`改成`websocket`
 
 
 
