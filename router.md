@@ -16,14 +16,7 @@ callback Gateway::$router
 
 是一个包含了所有到BusinessWorker进程的连接对象数组。数组的下标是格式为```ip:worker_name:worker_id```的字符串。其中ip为worker所在服务器的ip，worker_name为```$businessworker->name```的值([name属性参见workerman手册](https://doc.workerman.net/worker/name.html))，worker_id为自动分配的进程id编号([进程编号参见workerman手册](https://doc.workerman.net/worker/workerid.html))。这样通过下标就可以知道连接对应的worker在哪个服务器，属于哪组worker，进程编号是多少，可以方便的将消息路由给期望的服务器上的进程中去处理。
 
-（注意：GatewayWorker2.0.4之前版本数组下标为ip:port，并非ip:worker_name:worker_id）
-
-
-* ``` $client_connections ```
-
-客户端连接对象,可以通过此对象获得客户端ip端口等信息，也可以向其添加一些动态属性用来保存当前连接的相关信息。
-
-如果打印``` var_dump($client_connections) ```，则是类似这样的数据。
+如果打印``` var_dump($worker_connnections) ```，则是类似这样的数据。
 ```
 array(4) {
   ["127.0.0.1:ChatBusinessWorker:0"]=>object(Workerman\Connection\TcpConnection)...,
@@ -32,6 +25,14 @@ array(4) {
   ["127.0.0.1:ChatBusinessWorker:3"]=>object(Workerman\Connection\TcpConnection)...,
 }
 ```
+
+（注意：GatewayWorker2.0.4之前版本数组下标为ip:port，并非ip:worker_name:worker_id）
+
+
+* ``` $client_connection ```
+
+客户端连接对象,可以通过此对象获得客户端ip端口等信息，也可以向其添加一些动态属性用来保存当前连接的相关信息。
+
 
 * ``` $cmd ```
 
@@ -49,8 +50,7 @@ CMD_ON_CLOSE，即客户端关闭事件
 客户端发来的数据。注意只有当 ``` $cmd ``` 为``` CMD_ON_MESSAGE ```时 ```$buffer ```才有值
 
 ## 返回值
-返回 ```$worker_connnections``` 中的一个连接对象
-
+返回 ```$worker_connnections``` 中的一个连接对象。如果没有可返回的```$worker_connnections```，则返回false。
 
 
 ## 范例 1 随机路由
