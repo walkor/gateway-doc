@@ -76,7 +76,7 @@ Gateway进程启动后会监听一个本机端口，用来给BusinessWorker提�
 
 当本机有多个Gateway/BusinessWorker项目时，需要把每个项目的startPort设置成不同的段
 
-6、registerAddress，注册服务地址，只写格式类似于 '127.0.0.1:1236'
+6、registerAddress，注册服务地址，格式类似于 '127.0.0.1:1236'。如果是部署了多个register服务则格式是数组，类似['192.168.0.1:1236','192.168.0.2:1236']
 
 7、心跳设置，具体说明见心跳一节
 
