@@ -9,7 +9,7 @@ GatewayWorker有三种进程，Gateway进程负责网络IO，BusinessWorker进�
 
 
 ## gateway worker 分离部署扩容步骤
-1. 配置Gateway服务器192.168.0.1上start_gateway.php中的```lanIp=192.168.0.1```与本机ip一致，配置registerAddress为```['192.168.0.1:1236','192.168.0.2:1236']```，start_gateway.php文件最终类似下面配置。(Gateway服务器192.168.0.2类似)
+1. 删除服务器192.168.0.1/2上的start_businessworker.php。配置start_gateway.php中的```lanIp=192.168.0.x```与本机ip一致。配置registerAddress为```['192.168.0.1:1236','192.168.0.2:1236']```，start_gateway.php文件最终类似下面配置。
 
 文件Applications/Todpole/start_gateway.php
 ```php
@@ -22,8 +22,8 @@ $gateway = new Gateway("Websocket://0.0.0.0:8282");
 $gateway->name = 'TodpoleGateway';
 $gateway->count = 4;
 // ==== 注意这里配置的是本机内网ip ====
-$gateway->lanIp = '192.168.0.1';
-// ==== 注意这里配置的是192.168.0.1:1236 ====
+$gateway->lanIp = '192.168.0.1'; // 服务器192.168.0.2 上为 192.168.0.2
+// ==== 注意这里配置 ====
 $gateway->registerAddress = ['192.168.0.1:1236', '192.168.0.2:1236'];
 $gateway->startPort = 2000;
 $gateway->pingInterval = 10;
@@ -31,11 +31,9 @@ $gateway->pingData = '{"type":"ping"}';
 
 ...
 ```
-2. 192.168.0.1/2 两台服务器上不需要运行业务，所以将start_businessworker.php删除
+2. 打开192.168.0.3/4两台服务器，删除start_gateway.php和start_reigster.php。设置start_businessworker.php的registerAddress为 ['192.168.0.1:1236', '192.168.0.2:1236']
 
-3.打开192.168.0.3/4两台服务器的start_businessworker.php，配置registerAddress为 ['192.168.0.1:1236', '192.168.0.2:1236']，并删除start_gateway.php和start_reigster.php
-
-3、逐台启动
+3. 逐台启动
 
 *至此，GatewayWorker分布式部署完毕。*
 
