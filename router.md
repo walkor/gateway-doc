@@ -50,7 +50,7 @@ CMD_ON_CLOSE，即客户端关闭事件
 客户端发来的数据。注意只有当 ``` $cmd ``` 为``` CMD_ON_MESSAGE ```时 ```$buffer ```才有值
 
 ## 返回值
-返回 ```$worker_connnections``` 中的一个连接对象。如果没有可返回的```$worker_connnections```，则返回false。
+返回 ```$worker_connnections``` 中的一个连接对象。
 
 
 ## 范例 1 随机路由
