@@ -2,7 +2,7 @@
 Register类其实也是基于基础的Worker开发的。Gateway进程和BusinessWorker进程启动后分别向Register进程注册自己的通讯地址，Gateway进程和BusinessWorker通过Register进程得到通讯地址后，就可以建立起连接并通讯了。
 
 ## 注意
-register端口千万不能开放给外网，否则容易遭受攻击
+register端口千万不能开放给外网，否则可能遭受攻击
 
 客户端不要连接Register服务的端口，Register服务是GatewayWorker内部通讯用的。参见[原理](principle.md)。
 
