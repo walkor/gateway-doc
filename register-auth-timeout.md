@@ -12,15 +12,12 @@ Register unknown event:** IP: *.*.*.* Buffer:**
 
 ### 出现以上提示的原因
 
-有程序向Register服务发起了socket链接，然而Register服务不允许其它程序链接。  
-  
+有其它程序连接了Register端口导致的
 
-注意：客户端应该链接Gateway端口，不应该链接Register端口。  
-  
+**注意：不要将Register端口暴露给外网，否则会有安全风险**
 
-Register服务端口是用于GatewayWorker内部服务注册用的，任何其它程序不应该链接这个端口，出现这个提示说明有其它外部程序链接到此端口。  
-为了避免外网有程序链接到此端口，可以将start\_register.php中的监听地址改为本机内网ip，如果是单机部署(非分布式部署)可以将监听ip设置为127.0.0.1。  
-这样可以避免外部程序链接此端口，避免这个提示出现。  
-  
+请参考以下方案屏蔽Register外网端口
 
-如果对方ip为127.0.0.1，则说明是本机发起的socket链接，请检查本机是否有程序链接Register服务。
+* 安全组里设置Register端口不能被外网访问
+
+* start_register.php 里 `new Register('text://0.0.0.0:端口号');` 改为 `new Register('text://127.0.0.1:端口号');` 或者 `new Register('text://内网ip:端口号');`
