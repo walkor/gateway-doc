@@ -64,7 +64,7 @@ $gateway = new Gateway("websocket://0.0.0.0:8585");
 
 3、count
 
-和Worker一样，可以设置Gateway进程的数量，以便充分利用多cpu资源
+和Worker一样，可以设置Gateway进程的数量，一般一台服务器设置1-2个足够，设置多了对性能有一定影响。
 
 4、lanIp
 
