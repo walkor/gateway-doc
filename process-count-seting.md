@@ -1,6 +1,8 @@
 # 开启多少进程
-Gateway进程使用的非阻塞式IO通讯，属于CPU密集型业务，Gateway进程数设置成与CPU核数相等性能最好。即```start_gateway.php```中```$gateway->count= cpu```核数;
+Gateway进程数不是开得越多越好，Gateway进程增多会导致进程间通讯开销变大。
+每个Gateway进程可以轻松处理5000连接的请求转发，业务**同时**在线连接数少于5000时可以只开1-2个Gateway进程。1万**同时**在线可以开2-3个Gateway进程，每5000个连接增加一个Gateway进程，依次类推。
 
-BusinessWorker进程中根据业务是否有阻塞式IO设置进程数为CPU核数的1倍-3倍即可。 即```start_businessworker.php```中```$worker->count = cpu```核数的1-3倍;
+
+BusinessWorker进程中根据业务是否有阻塞式IO设置进程数为CPU核数的1倍-4倍即可。 即```start_businessworker.php```中```$worker->count = cpu```核数的1-4倍;
 
 参见：[Workerman手册-进程数设置](https://doc.workerman.net/faq/processes-count.html)
