@@ -31,7 +31,7 @@ $gateway->transport = 'ssl';
 
 **注意：**
 
-1、如果无法启动，则一般是443端口被占用，请改成其它端口。如果必须使用443端口请参考[worekrman手册创建wss服务](https://doc.workerman.net/faq/secure-websocket-server.html)方法二部分。
+1、如果无法启动，则一般是443端口被占用，请改成其它端口。如果必须使用443端口请参考[workerman手册创建wss服务](https://doc.workerman.net/faq/secure-websocket-server.html)方法二部分。
 
 2、wss端口只能通过wss协议访问，ws无法访问wss端口。
 
@@ -41,4 +41,4 @@ $gateway->transport = 'ssl';
 
 5、此方法要求PHP版本>=5.6，因为微信小程序要求tls1.2，而PHP5.6以下版本不支持tls1.2。
 
-**更多wss相关信息参考[worekrman手册创建wss服务](https://doc.workerman.net/faq/secure-websocket-server.html)**
+**更多wss相关信息参考[workerman手册创建wss服务](https://doc.workerman.net/faq/secure-websocket-server.html)**
