@@ -58,21 +58,7 @@ GatewayWorker不支持UDP监听，所以UDP服务请选择Workerman。
 只包含GatewayWorker内核
 https://github.com/walkor/GatewayWorker
 
-## 使用GatewayWorker开发的项目
 
-## [tadpole](http://kedou.workerman.net/)
-[Live demo](http://kedou.workerman.net/)
-
-[Source code](https://github.com/walkor/workerman)
-
-![workerman todpole](https://www.workerman.net/img/workerman-todpole.png)
-
-## [chat room](http://chat.workerman.net/)
-[Live demo](http://chat.workerman.net/)
-
-[Source code](https://github.com/walkor/workerman-chat)
-
-![workerman-chat](https://www.workerman.net/img/workerman-chat.png)
 
 
 
