@@ -58,3 +58,6 @@ $gateway->pingData = '{"type":"ping"}';
 *首先还是要说明下Gateway服务器一般情况下不会成为系统瓶颈，所以一般你很长时间内Gateway服务器数量是一个稳定的值，一般一台即可*
 
 下线Gateway服务器，首先停止服务，运行```php start.php stop```，此时会导致该服务器上已有的客户端链接断开，然后下线服务器即可。此时BusinessWorker会感知到有Gateway服务器下线，会自动断开与Gateway进程的联系。
+
+### 如何给Gateway添加负载均衡
+负载均衡方案是通用的，你可以用nginx代理、云厂商自带的TCP负载均衡、或者在gateway域名DNS上添加多条A记录。
