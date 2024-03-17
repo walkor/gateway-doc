@@ -28,7 +28,7 @@ $gateway->pingInterval = 10;
 $gateway->pingData = '{"type":"ping"}';
 ```
 
-5、更改Applications/Chat2/start_web.php中的WebServer端口，
+5、更改Applications/Chat2/start_web.php中的WebServer端口(如果没有这个文件请忽略)，
 
 ```php
 // 这里改成55252
