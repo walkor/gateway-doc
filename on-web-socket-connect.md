@@ -26,7 +26,7 @@ websocket握手时的http头数据，包含get、server等变量
 无返回值，任何返回值都会被视为无效的
 
 
-## onConnect范例
+## 范例
 ```php
 use \GatewayWorker\Lib\Gateway;
 
