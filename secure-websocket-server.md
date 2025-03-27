@@ -1,5 +1,9 @@
 # 创建wss服务
 
+## 方案一 使用nginx代理(推荐)
+推荐使用nginx代理来实现wss，参考[workerman手册创建wss服务](https://doc.workerman.net/faq/secure-websocket-server.html)
+
+## 方案二 配置Gateway(不推荐)
 **准备工作：**
 
 1、Workerman版本不小于3.3.7
