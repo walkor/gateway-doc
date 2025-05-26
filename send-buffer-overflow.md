@@ -19,7 +19,7 @@
 如果busy进程对应的cpu占用很高，需要review代码看看哪里有while(1) foreach for类似的代码。 
 
  
-如果cpu不高，需要用 strace -ttp $pid 命令跟踪下进程系统调用，  
+如果cpu不高，需要用 strace -ttp $pid 命令跟踪下businessWorker进程系统调用，  
 是否有read(fd=x、 poll(fd=x类似的代码，如果有说明进程在等待某个fd的数据返回，  
 这时用lsof -p $pid | grep $fd 查看进程在等待哪个外部资源的返回，从而定位是哪里问题。  
 
