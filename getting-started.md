@@ -21,6 +21,8 @@
 
 6、业务代码更改后请运行 `php start.php reload` 更新代码，否则更改的代码不会生效。
 
+7、gatewayWorker是长连接框架，gateway不支持http协议。
+
 ## 目录结构
 ```
 .
