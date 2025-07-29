@@ -24,8 +24,8 @@ $gateway = new Gateway('protocol://ip:port');
 4、[自定义通讯协议](https://doc.workerman.net/protocols/how-protocols.html)
 5、[tcp](https://baike.baidu.com/item/TCP/33012)，直接裸tcp，不推荐，见[通讯协议作用](https://doc.workerman.net/protocols/why-protocols.html)。
 
-
- ``` 注意 ```:GatewayWorker不支持监听Http协议。但是可以在业务中以客户端的形式通过http协议(比如curl)访问远程服务器。
+> **注意**
+> GatewayWorker不支持监听Http协议。但是可以在业务中以客户端的形式通过http协议(比如curl)访问远程服务器。
 
 **ip：**
 
