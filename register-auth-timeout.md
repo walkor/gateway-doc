@@ -12,7 +12,7 @@ Register unknown event:** IP: *.*.*.* Buffer:**
 
 ### 出现以上提示的原因
 
-有其它程序连接了Register端口导致的
+非法客户端连接了Register端口导致的。客户端应该连接gateway端口，不应该连接Register端口。
 
 **注意：不要将Register端口暴露给外网，否则会有安全风险**
 
